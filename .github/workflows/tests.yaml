@@ -21,7 +21,7 @@ jobs:
         - run: |
             python -m pip install --upgrade pip
             python -m pip install matplotlib
-            bash test_search.sh
+            bash test_hw7.sh
     code_style:
       runs-on: ubuntu-latest
       steps: 
@@ -40,4 +40,4 @@ jobs:
       steps:
       - uses: actions/checkout@v2
       - run: | 
-          python -m unittest test_utils
+          python -m unittest test_hw7
