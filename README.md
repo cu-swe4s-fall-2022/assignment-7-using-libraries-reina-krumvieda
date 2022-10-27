@@ -19,7 +19,7 @@ Usage: python data_processor.py {function} {num_rows} {num_columns}
 Example Call:  python data_processor.py get_file_dimensions
 
 
-#test_hw7.py
+# test_hw7.py
 Description: Tests test data_processor.py get_random_matrix,
              get_file_dimensions and write_matrix_to_file
              Includes randomness, positive and negative test cases
