@@ -32,7 +32,7 @@ def get_file_dimensions(file_name):
                 return (0, 0)
         num_rows = len(file_data)
         num_columns = len(file_data.columns)
-        return(num_rows, num_columns)
+        return (num_rows, num_columns)
     return (0, 0)
 
 
