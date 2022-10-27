@@ -41,25 +41,46 @@ def plot_scatter():
 
     
 def plot_multi_panel():
-    iris = pd.read_csv('iris.data')
-    measurement_names = ['sepal_width','sepal_length','petal_width',
-                         'petal_length','species']
-    iris.columns = measurement_names
+    iris = pd.read_csv('iris.data', header=None)
+    iris.columns = ['sepal_width', 'sepal_length', 'petal_width', 'petal_length', 'species']
 
-    fig = plt.figure()
-    fig, axes = plt.subplots(2)
-    #left boxplot
-    #axes[0,0].plot_boxplot()
-    #axes[0,1].plot_scatter()
+    f = plt.figure()
+    fig, axes = plt.subplots(1, 2)
+    fig.set_size_inches(10, 5)
+
+    # right scatterplot
+    for species_name in set(iris['species']):
+        iris_subset = iris[iris['species'] == species_name]
+        axes[1].scatter(iris_subset['petal_length'],
+                    iris_subset['petal_width'],label=species_name)
+    axes[1].set_xlabel('petal_length (cm)')
+    axes[1].set_ylabel('petal_width (cm)')
+    axes[1].legend(loc='upper right')
+
+    # left boxplot
+    measurement_names = ['sepal_width', 'sepal_length', 'petal_width',
+                         'petal_length']    
+    #iris_subset = iris[iris['species'] == species_name]
+    axes[0].boxplot(iris[measurement_names], labels=measurement_names)
+    axes[0].set_ylabel('cm')
+    
+    for i in range(2):
+        # choose to hide of show certain borders or "spines"
+        axes[i].spines['top'].set_visible(False)
+        axes[i].spines['right'].set_visible(False)
+        axes[i].spines['bottom'].set_visible(True)
+        axes[i].spines['left'].set_visible(True)
 
     plt.savefig('multi_panel_figure')
-    fig.clear()  
-    plt.close(fig)
-    return None
+    f.clear()  
+    plt.close(f)
+
+    #return None
+
 
 def main():
-    plot_boxplot()
-    plot_scatter()
+    #plot_boxplot()
+    #plot_scatter()
     plot_multi_panel()
     
 if __name__ == '__main__':
