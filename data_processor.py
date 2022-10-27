@@ -1,4 +1,10 @@
-# remember to import your libraries!
+# Description: contains functions for data processing
+# Usage: python data_processor.py {function} {num_rows} {num_columns}
+#     {function}: get_random_matrix, get_file_dimensions, or
+#               write_matrix_to_file
+#     {num_rows}: number of rows desired for matrix
+#     {num_columns}: number of columns desired for matrix
+# Example Call:  python data_processor.py get_file_dimensions
 import numpy as np
 import pandas as pd
 import sys
