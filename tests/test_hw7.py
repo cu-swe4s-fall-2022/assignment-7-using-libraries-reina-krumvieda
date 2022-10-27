@@ -24,7 +24,7 @@ class TestHw7(unittest.TestCase):
         # generate random valid column number
         cls.rand_col_val = random.randint(1, 10)
         # set up file name
-        cls.file_name = '../iris.data'
+        cls.file_name = 'iris.data'
         # test file name
         cls.test_file_name = 'test_file_name'
         # random matrix
